@@ -1,0 +1,70 @@
+.navbar{
+    height: 75px !important;
+    z-index: 999;
+}
+.button{
+    background-color: red;
+    border-radius: 15px;
+}
+.bg-dark{
+    background-color: black !important;
+}
+.image-carbarz{
+    width: 20%;
+}
+.right-carbarz{
+    display: flex;
+    justify-content: end;
+}
+.carbarz{
+    width: 225px;
+    height: 90px;
+    margin-right: 5%;
+}
+.car1{
+    width: 700px;
+    height: 450px;
+}
+h1{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 45px;
+    position: relative;
+}
+.fw-lighter{
+    font-style: italic;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+.carousel-indicators button{
+    height: 1px !important; 
+    width: 20px !important;
+    border-radius: 50%;
+    background: #fff !important;
+}
+.wrap-car{
+    width: 20%;
+    row-gap: 10px;
+    margin: 15px;
+    background-color:#CFCFCF;
+    background-size: cover;
+    border-radius: 25px;
+    position: relative;
+    width: 250px;
+    height: 250px;
+    left: 0px;
+    top: 0px;
+}
+.border{
+    border-radius: 25px;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 10px;
+}
+.wrap-profil{
+    width: 25%;
+    height: auto;
+}
+.wrap-profil img{
+    width: 170px;
+    height: auto;
+    clip-path: circle(80px at center);
+}
