@@ -6,3 +6,11 @@ CREATE TABLE login (
     password text DEFAULT NULL, 
     PRIMARY KEY (id) 
 );
+
+CREATE TABLE stok (
+    id INT(11) NOT NULL AUTO_INCREMENT,
+    tipe_mobil VARCHAR (50) DEFAULT NULL,
+    harga VARCHAR (20) DEFAULT NULL,
+    picture VARCHAR(200) NOT NULL,
+    PRIMARY KEY (id)
+);
