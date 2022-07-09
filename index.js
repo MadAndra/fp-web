@@ -10,17 +10,17 @@ const app = express();
 const loginRoutes = require("./main/routes/router-login");
 const registerRoutes = require("./main/routes/router-register");
 const appRoutes = require("./main/routes/router-app");
+const adminRoutes = require("./main/routes/router-admin");
 
 // Configurasi library session
 app.use(
   session({
-    resave: false,
+    resave: true,
     saveUninitialized: false,
     secret: "koneko",
     name: "siapa y",
     cookie: {
       sameSite: true,
-      maxAge: 60000,
     },
   })
 );
@@ -40,9 +40,11 @@ app.use(function (req, res, next) {
 });
 
 // ststic file
-app.use(express.static('assets'));
-app.use('/img', express.static(__dirname + 'assets/img'))
-app.use('/css', express.static(__dirname + 'assets/css'))
+app.use(express.static("assets"));
+app.use("/img", express.static(__dirname + "assets/img"));
+app.use("/css", express.static(__dirname + "assets/css"));
+app.use("/js", express.static(__dirname + "assets/js"));
+app.use("/vendor", express.static(__dirname + "assets/vendor"));
 
 // Setting folder views
 app.set("views", path.join(__dirname, "main/views"));
@@ -51,6 +53,7 @@ app.set("view engine", "ejs");
 // Gunakan routes yang telah didefinisikan
 app.use("/login", loginRoutes);
 app.use("/register", registerRoutes);
+app.use("/admin", adminRoutes);
 app.use("/", appRoutes);
 
 // Gunakan port server
