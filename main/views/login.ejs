@@ -20,17 +20,18 @@
   <body style="padding: 0px !important">
     <img class="bg-login" src="img/bg-login.png" alt="bg" />
     <img class="bg-login" id="bg-flip" src="img/bg-login.png" alt="bg" />
-    <h1 class="text-center text-light" style="padding-top: 20px;"><b>WELCOME</b></h1>
+    <h1 class="text-center text-light" style="padding-top: 20px">
+      <b>WELCOME</b>
+    </h1>
     <div class="container login">
-      <div class="row h-100 justify-content-center align-items-center">
+      <div
+        class="row h-100 justify-content-center align-items-center login-form"
+      >
         <form action="<%= url %>login/auth" method="POST" class="col-md-4 card">
           <h2 class="text-center"><b>CarBarZ</b></h2>
           <div class="form-group">
             <div class="row">
-              <div class="col-sm-2">
-                <img src="img/profile-icn.png" alt="icon-profile" />
-              </div>
-              <div class="col-sm-10">
+              <div class="col">
                 <input
                   type="email"
                   name="email"
@@ -43,10 +44,7 @@
           </div>
           <div class="form-group">
             <div class="row">
-              <div class="col-sm-2">
-                <img src="img/key-icn.png" alt="icon-key" />
-              </div>
-              <div class="col-sm-10">
+              <div class="col">
                 <input
                   type="password"
                   name="pass"
@@ -68,14 +66,6 @@
           >
             <strong><%= statusFlash %></strong>
             <%= pesanFlash %>
-            <button
-              type="button"
-              class="close"
-              data-dismiss="alert"
-              aria-label="Close"
-            >
-              <span aria-hidden="true">&times;</span>
-            </button>
           </div>
           <% } %>
         </form>
@@ -99,14 +89,22 @@
     .login {
       margin-top: 25px;
     }
-    .bg-login{
-        position: absolute;
-        z-index: 0;
-        bottom: 0;
+    .bg-login {
+      position: absolute;
+      z-index: 0;
+      bottom: 0;
     }
-    #bg-flip{
-        transform: scaleX(-1);
-        right: 0;
+    #bg-flip {
+      transform: scaleX(-1);
+      right: 0;
+    }
+    @media only screen and (max-width: 768px) {
+      body {
+        width: 100%;
+      }
+      .bg-login {
+        max-width: 50%;
+      }
     }
   </style>
 </html>

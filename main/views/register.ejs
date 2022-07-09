@@ -22,8 +22,8 @@
     <h1 class="text-center text-light" style="padding-top: 20px">
       <b>REGISTER</b>
     </h1>
-    <div class="container h-100">
-      <div class="row h-100 justify-content-center align-items-center">
+    <div class="container">
+      <div class="row justify-content-center align-items-center">
         <form
           action="<%= url %>register/save"
           method="POST"
@@ -50,16 +50,6 @@
             />
           </div>
           <div class="form-group">
-            <label>ROLE</label>
-            <input
-              type="role"
-              name="role"
-              class="form-control"
-              placeholder="Admin/User"
-              required
-            />
-          </div>
-          <div class="form-group">
             <label>PASSWORD</label>
             <input
               type="password"
@@ -69,7 +59,12 @@
               required
             />
           </div>
-      <button type="submit" class="btn btn-dark justify-content-center align-items-center">REGISTER</button>
+          <button
+            type="submit"
+            class="btn btn-dark justify-content-center align-items-center"
+          >
+            REGISTER
+          </button>
         </form>
       </div>
     </div>
@@ -80,7 +75,7 @@
       font-family: Quicksand, sans-serif !important;
       height: 100%;
       padding-top: 2rem;
-      background-color: #4b4a4a;
+      background-color: #1a1a1a;
     }
     .card {
       padding: 2%;
@@ -99,8 +94,16 @@
       transform: scaleX(-1);
       right: 0;
     }
-    label{
+    label {
       font-weight: bold;
+    }
+    @media only screen and (max-width: 768px) {
+      body {
+        width: 100%;
+      }
+      .bg-login {
+        max-width: 50%;
+      }
     }
   </style>
 </html>

@@ -16,13 +16,12 @@ module.exports ={
         let username = req.body.username;
         let email = req.body.email;
         let password = req.body.pass;
-        let roles = req.body.role;
-        if (username && roles && email && password) {
+        if (username && email && password) {
             pool.getConnection(function(err, connection) {
                 if (err) throw err;
                 connection.query(
-                    `INSERT INTO login (name, role, email, password) VALUES (?,?,?,SHA2(?,512));`
-                , [username, roles, email, password],function (error, results) {
+                    `INSERT INTO login (name, email, password) VALUES (?,?,SHA2(?,512));`
+                , [username, email, password],function (error, results) {
                     if (error) throw error; 
                     req.flash('color', 'success');
                     req.flash('status', 'Yes..');
