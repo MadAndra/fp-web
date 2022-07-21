@@ -1,16 +1,10 @@
-const config = require("../configs/database");
+const db = require("../configs/database");
 const session = require("express-session");
-let mysql = require("mysql");
-let pool = mysql.createPool(config);
-
-pool.on("error", (err) => {
-  console.error(err);
-});
 
 module.exports = {
   login(req, res) {
     res.render("login", {
-      url: "http://localhost:5050/",
+      url: "http://localhost:5051/",
       colorFlash: req.flash("color"),
       statusFlash: req.flash("status"),
       pesanFlash: req.flash("message"),
@@ -20,11 +14,8 @@ module.exports = {
     let email = req.body.email;
     let password = req.body.pass;
     if (email && password) {
-      pool.getConnection(function (err, connection) {
-        if (err) throw err;
-        connection.query(
-          `SELECT * FROM login WHERE email = ? AND password = SHA2(?,512)`,
-          [email, password],
+      db.query(
+        `SELECT * FROM login WHERE email = '${email}' AND password = SHA2('${password}',512)`,
           function (error, results) {
             if (error) throw error;
             if (results.length > 0) {
@@ -47,9 +38,7 @@ module.exports = {
               res.redirect("/login");
             }
           }
-        );
-        connection.release();
-      });
+      );
     } else {
       res.redirect("/login");
       res.end();
